@@ -1,27 +1,23 @@
 {
-  "name": "Econce",
+  "name": "nodejs-complete-guide",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Complete Node.js Guide",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
     "start-server": "node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/YugantKachroo/Econce.git"
-  },
-  "keywords": [],
-  "author": "",
+  "author": "Maximilian Schwarzmüller",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/YugantKachroo/Econce/issues"
+  "devDependencies": {
+    "nodemon": "^1.18.3"
   },
-  "homepage": "https://github.com/YugantKachroo/Econce#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "nodemon": "^2.0.4"
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "pug": "^2.0.3"
   }
 }
