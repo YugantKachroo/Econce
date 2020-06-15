@@ -1,0 +1,70 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+main {
+  padding: 1rem;
+}
+.main-header {
+  width: 100%;
+  height: 3.5rem;
+  background-color: #dbc441;
+}
+.main-header__nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.main-header__item-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+.main-header__item {
+  padding: 0 1rem;
+  margin: 0;
+}
+.main-header__item a {
+  text-decoration: none;
+  color: white;
+}
+.main-header__item a:hover,
+.main-header__item a:active,
+.main-header__item a.active {
+  color: red;
+}
+.product-form {
+  width: 20rem;
+  max-width: 90%;
+  margin: auto;
+}
+.form-control {
+  margin: 1rem 0;
+}
+.form-control label,
+.form-control input {
+  display: block;
+  width: 100%;
+}
+.form-control input {
+  border: 1px solid #dbc441;
+  font: inherit;
+  border-radius: 2px;
+}
+button {
+  border: 1px solid black;
+  color: black;
+  cursor: pointer;
+  font: inherit;
+  background: white;
+  border-radius: 3px;
+}
+button:hover,
+button:active {
+  color: white;
+  background-color: black;
+}
