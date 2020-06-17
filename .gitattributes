@@ -3,3 +3,6 @@
 
 # Replace any whitespace in the language name with hyphens:
 *.glyphs linguist-language=OpenStep-Property-List
+
+special-vendored-path/* linguist-vendored
+jquery.js -linguist-vendored
