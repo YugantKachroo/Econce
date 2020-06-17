@@ -1,8 +1,2 @@
-# Example of a `.gitattributes` file which reclassifies `.rb` files as Java:
-*.rb linguist-language=JavaScript
-
-# Replace any whitespace in the language name with hyphens:
-*.glyphs linguist-language=OpenStep-Property-List
-
-special-vendored-path/* linguist-vendored
-jquery.js -linguist-vendored
+ *.js linguist-detectable=true
+ *.html linguist-detectable=false
