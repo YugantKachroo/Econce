@@ -73,7 +73,7 @@ mongoose.connection.on('error', (err) => {
   console.log(`DB connection error: ${err.message}`);
 });
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`listening on port: ${port}`);
 });
