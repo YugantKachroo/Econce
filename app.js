@@ -1,8 +1,9 @@
 const path = require('path');
-const session = require('express-session');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
 const errorController = require('./controllers/error');
@@ -35,7 +36,10 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  User.findById('5eeb3d59b0f6d3415c1b9848')
+  if (!req.session.user) {
+    return next();
+  }
+  User.findById(req.session.user._id)
     .then((user) => {
       req.user = user;
       next();
