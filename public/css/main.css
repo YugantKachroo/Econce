@@ -21,6 +21,8 @@ form {
 
 .centered {
   text-align: center;
+  margin-left: 60px;
+  margin-top: -20px;
 }
 
 .image {
