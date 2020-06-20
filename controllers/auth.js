@@ -5,14 +5,22 @@ const crypto = require('crypto');
 const dotenv = require('dotenv');
 dotenv.config();
 
-let transport = nodemailer.createTransport({
-  host: 'smtp.mailtrap.io',
-  port: 2525,
+let mailTransporter = nodemailer.createTransport({
+  service: 'gmail',
   auth: {
-    user: process.env.muser,
-    pass: process.env.mpass,
+    user: process.env.user,
+    pass: process.env.pass,
   },
 });
+
+// let transport = nodemailer.createTransport({
+//   host: 'smtp.mailtrap.io',
+//   port: 2525,
+//   auth: {
+//     user: process.env.muser,
+//     pass: process.env.mpass,
+//   },
+// });
 
 exports.getLogin = (req, res, next) => {
   let message = req.flash('error');
@@ -90,11 +98,19 @@ exports.postSignup = (req, res, next) => {
         })
         .then((result) => {
           res.redirect('/login');
-          return transport.sendMail({
+          let mailDetails = {
+            from: 'xyz@gmail.com',
             to: email,
-            from: 'shop@node.com',
-            subject: 'Signup succeeded!',
-            html: '<h1>You successfully signed up!</h1>',
+            subject: 'Signup Successfull!!',
+            html: '<p>You successfully signed up!</p>',
+          };
+
+          return mailTransporter.sendMail(mailDetails, function (err, data) {
+            if (err) {
+              console.log('Error Occurs');
+            } else {
+              console.log('Email sent successfully');
+            }
           });
         })
         .catch((err) => {
