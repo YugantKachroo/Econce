@@ -162,11 +162,22 @@ exports.postReset = (req, res, next) => {
       })
       .then((result) => {
         res.redirect('/');
-        transport.sendMail({
+        let mailDetails = {
+          from: 'xyz@gmail.com',
           to: req.body.email,
-          from: 'shop@node.com',
-          subject: 'Password Reset',
-          html: `<p>Click this <a href='/http://localhost:3000/reset/${token}'>link</a> to reset password</p>`,
+          subject: 'Password reset',
+          html: `
+            <p>You requested a password reset</p>
+            <p>Click this <a href="http://localhost:3000/reset/${token}">link</a> to set a new password.</p>
+          `,
+        };
+
+        return mailTransporter.sendMail(mailDetails, function (err, data) {
+          if (err) {
+            console.log('Error Occurs');
+          } else {
+            console.log('Email sent successfully');
+          }
         });
       })
       .catch((err) => console.log(err));
