@@ -1,5 +1,5 @@
 const express = require('express');
-const { check } = require('express-validator');
+const { check, body } = require('express-validator');
 
 const {
   getLogin,
@@ -23,7 +23,12 @@ router.post('/login', postLogin);
 
 router.post(
   '/signup',
-  check('email').isEmail().withMessage('Please enter a valid email'),
+  [
+    check('email').isEmail().withMessage('Please enter a valid email'),
+    body('password', 'Password must be ateast 6 characters long').isLength({
+      min: 6,
+    }),
+  ],
   postSignup
 );
 
