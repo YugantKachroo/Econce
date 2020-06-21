@@ -28,6 +28,12 @@ router.post(
     body('password', 'Password must be ateast 6 characters long').isLength({
       min: 6,
     }),
+    body('confirmPassword').custom((value, { req }) => {
+      if (value !== req.body.password) {
+        throw new Error('Passwords do not match');
+      }
+      return true;
+    }),
   ],
   postSignup
 );
