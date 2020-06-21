@@ -16,7 +16,20 @@ const {
 
 const router = express.Router();
 
-router.get('/login', getLogin);
+router.post(
+  '/login',
+  [
+    body('email')
+      .isEmail()
+      .withMessage('Please enter a valid email address.')
+      .normalizeEmail(),
+    body('password', 'Password has to be valid.')
+      .isLength({ min: 5 })
+      .isAlphanumeric()
+      .trim(),
+  ],
+  postLogin
+);
 
 router.get('/signup', getSignup);
 
@@ -34,16 +47,20 @@ router.post(
             return Promise.reject('E-Mail already exists');
           }
         });
-      }),
+      })
+      .normalizeEmail(),
     body('password', 'Password must be ateast 6 characters long').isLength({
       min: 6,
     }),
-    body('confirmPassword').custom((value, { req }) => {
-      if (value !== req.body.password) {
-        throw new Error('Passwords do not match');
-      }
-      return true;
-    }),
+    body('confirmPassword')
+      .trim()
+      .custom((value, { req }) => {
+        if (value !== req.body.password) {
+          throw new Error('Passwords do not match');
+        }
+        return true;
+      })
+      .trim(),
   ],
   postSignup
 );
