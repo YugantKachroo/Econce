@@ -16,6 +16,8 @@ const {
 
 const router = express.Router();
 
+router.get('/login', getLogin);
+
 router.post(
   '/login',
   [
@@ -32,8 +34,6 @@ router.post(
 );
 
 router.get('/signup', getSignup);
-
-router.post('/login', postLogin);
 
 router.post(
   '/signup',
