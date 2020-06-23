@@ -157,7 +157,7 @@ exports.getCheckout = (req, res, next) => {
             name: p.productId.title,
             description: p.productId.description,
             amount: p.productId.price * 100,
-            currency: 'usd',
+            currency: 'inr',
             quantity: p.quantity,
           };
         }),
