@@ -35,6 +35,7 @@
     "pdf-invoice": "^1.0.2",
     "pdfkit": "^0.11.0",
     "pug": "^2.0.3",
-    "sequelize": "^5.0.0-beta.11"
+    "sequelize": "^5.0.0-beta.11",
+    "stripe": "^8.64.0"
   }
 }

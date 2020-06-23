@@ -13,6 +13,7 @@ const {
   getOrders,
   getInvoice,
   getCheckout,
+  getCheckoutSuccess,
 } = require('../controllers/shop');
 const isAuth = require('../middleware/is-auth');
 
@@ -32,7 +33,11 @@ router.post('/cart-delete-item', isAuth, postCartDeleteProduct);
 
 router.get('/checkout', isAuth, getCheckout);
 
-router.post('/create-order', isAuth, postOrder);
+router.get('/checkout/success', isAuth, getCheckoutSuccess);
+
+router.get('/checkout/cancel', isAuth, getCheckout);
+
+// router.post('/create-order', isAuth, postOrder);
 
 router.get('/orders', isAuth, getOrders);
 
